@@ -97,7 +97,7 @@ def main():
         
         solver.parameters.max_time_in_seconds = 30*60.0 - 10 - (time.time() - start_time)
         solver.parameters.optimize_with_core = True
-        solver.parameters.subsolvers.append("no_lp")
+        solver.parameters.subsolvers[:] = ['no_lp', 'fixed']
         
         if problem == "ds":
             solver.parameters.binary_minimization_algorithm=4
